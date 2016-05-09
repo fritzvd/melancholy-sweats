@@ -11,7 +11,7 @@ graphics.c:
 
 	# -savetilemap assets/includes/blatilemap.stmcompr
 	../bmp2tile/bmp2tile.exe assets/fritz.png -8x16 -savepalette assets/includes/blapal.bin -savetiles assets/includes/blatiles.psgcompr -exit
-	../bmp2tile/bmp2tile.exe assets/title.png -8x16 -savepalette assets/includes/titlepal.bin -savetiles assets/includes/titletiles.psgcompr -savetilemap assets/includes/titletilemap.stmcompr -exit
+	../bmp2tile/bmp2tile.exe assets/title.png -savepalette assets/includes/titlepal.bin -savetiles assets/includes/titletiles.psgcompr -savetilemap assets/includes/titletilemap.stmcompr -exit
 	$(FOLDER2C) assets/includes/ graphics
 
 main.rel: graphics.c
