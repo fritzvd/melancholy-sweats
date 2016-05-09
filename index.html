@@ -4,20 +4,31 @@
     <meta charset="utf-8">
     <title>Melancholy sweats</title>
     <style>
-      body {
-        background: url(assets/title.png);
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        image-rendering: -moz-crisp-edges;         /* Firefox */
-        image-rendering:   -o-crisp-edges;         /* Opera */
-        image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
-        image-rendering: pixelated;
-        -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+    body {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      overflow: hidden;
+      background: url(assets/title.png);
+      background-size: cover;
+      image-rendering: -moz-crisp-edges;         /* Firefox */
+      image-rendering:   -o-crisp-edges;         /* Opera */
+      image-rendering: -webkit-optimize-contrast;/* Webkit (non-standard naming) */
+      image-rendering: pixelated;
+      -ms-interpolation-mode: nearest-neighbor;  /* IE (non-standard property) */
+    }
+    .clickable {
+      width: 100%;
+      height: 100%;
       }
+
+    a, a:hover, a:active, a:focus {
+      outline: 0;
+    }
     </style>
   </head>
   <body>
+    <a href="http://fritzvd.com/melancholy-sweats/main.sms"><div class="clickable"></div></a>
 
   </body>
 </html>
