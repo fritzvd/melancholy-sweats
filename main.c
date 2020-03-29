@@ -21,35 +21,35 @@ void input () {
   //   playerPosition[1]++;
 	// }
 	if (joy & PORT_A_KEY_LEFT) {
-    playerPosition[0]--;
+        playerPosition[0]--;
 	}
 	if (joy & PORT_A_KEY_RIGHT) {
-    playerPosition[0]++;
+        playerPosition[0]++;
 	}
-  if (joy & PORT_A_KEY_1) {
-    if (frameNr - jumpFrame > JUMP_FRAME_NUMBERS) {
-      jumpFrame = frameNr;
+    if (joy & PORT_A_KEY_1) {
+        if (frameNr - jumpFrame > JUMP_FRAME_NUMBERS) {
+          jumpFrame = frameNr;
+        }
     }
-  }
 }
 
 
 int collideWithPlatform () {
   if (playerPosition[1] < 100) {
-    return 0;
+      return 0;
   } else {
-    return 1;
+      return 1;
   }
 }
 
 void gravity () {
   int jumping = frameNr - jumpFrame < JUMP_FRAME_NUMBERS / 2;
   if (jumping) {
-    playerPosition[1]--;
+      playerPosition[1]--;
   }
 
   if (!collideWithPlatform() && !jumping) {
-    playerPosition[1]++;
+      playerPosition[1]++;
   }
 }
 
@@ -65,27 +65,27 @@ void load_assets(void) {
 
 
 void main() {
-  int turn = 0;
-	frameNr = 0;
-  jumpFrame = 0;
-  playerPosition[0]=10;
-  playerPosition[1]=100;
+    int turn = 0;
+    frameNr = 0;
+    jumpFrame = 0;
+    playerPosition[0]=10;
+    playerPosition[1]=100;
 
-  SMS_setSpriteMode (SPRITEMODE_TALL);
-  SMS_VDPturnOnFeature(VDPFEATURE_USETALLSPRITES);
-  SMS_VDPturnOffFeature(VDPFEATURE_HIDEFIRSTCOL);
+    SMS_setSpriteMode (SPRITEMODE_TALL);
+    SMS_VDPturnOnFeature(VDPFEATURE_USETALLSPRITES);
+    SMS_VDPturnOffFeature(VDPFEATURE_HIDEFIRSTCOL);
 
-  load_assets();
-  SMS_displayOn();
+    load_assets();
+    SMS_displayOn();
 
-	for (;;) {
-		frameNr = frameNr + 1;
-		input();
-    gravity();
-    SMS_initSprites();
-    SMS_addSprite(playerPosition[0], playerPosition[1], SPRITES);
-    SMS_finalizeSprites();
-    SMS_waitForVBlank();
-    SMS_copySpritestoSAT();
+    for (;;) {
+        frameNr = frameNr + 1;
+        input();
+        gravity();
+        SMS_initSprites();
+        SMS_addSprite(playerPosition[0], playerPosition[1], SPRITES);
+        SMS_finalizeSprites();
+        SMS_waitForVBlank();
+        SMS_copySpritestoSAT();
 	}
 }
